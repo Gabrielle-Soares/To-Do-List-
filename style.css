@@ -1,0 +1,152 @@
+:root {
+    --primary-color: #6c63ff; 
+    --secondary-color: #e6e6fa;
+    --text-color: #333;
+    --light-text-color: #fff;
+    --background-gradient: linear-gradient(135deg, #f0f2f5 0%, #e0e5ec 100%);
+    --card-background: #ffffff;
+    --shadow-dark: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(255, 255, 255, 0.8);
+    --border-radius-large: 15px;
+    --border-radius-small: 8px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background-gradient);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.container {
+    background-color: var(--card-background);
+    padding: 40px;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-dark);
+    width: 100%;
+    max-width: 550px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 2.2em;
+}
+
+/* Área de Input */
+.input-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px; /* Margem padrão */
+}
+
+#taskInput {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius-small);
+    font-size: 1em;
+    outline: none;
+    box-shadow: inset 2px 2px 5px #d1d9e6, inset -2px -2px 5px #f9ffff;
+    transition: all 0.3s ease;
+}
+
+#taskInput:focus {
+    border-color: var(--primary-color);
+}
+
+button {
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border: none;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+button:hover {
+    background-color: #5b53d0;
+    transform: translateY(-2px);
+}
+
+/* Lista de Tarefas */
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#taskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius-small);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 1.05em;
+    position: relative;
+}
+
+/* Efeito de check e texto da tarefa */
+#taskList li .task-text {
+    flex-grow: 1;
+    margin-right: 15px;
+    position: relative;
+    padding-left: 30px;
+    transition: all 0.3s ease;
+}
+
+#taskList li .task-text::before {
+    content: '\f111'; /* Círculo vazio */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+    font-size: 0.9em;
+}
+
+#taskList li.completed .task-text {
+    text-decoration: line-through;
+    color: #888;
+}
+
+#taskList li.completed .task-text::before {
+    content: '\f058'; /* Círculo preenchido (Check) */
+    font-weight: 900;
+    color: var(--primary-color);
+}
+
+/* Botão de Remover */
+#taskList li .remove-btn {
+    background: none;
+    color: #5b53d0;
+    border: none;
+    padding: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+
+#taskList li .remove-btn:hover {
+    background-color: rgba(255, 99, 108, 0.1);
+    color: #5b53d0;
+    transform: scale(1.1);
+}
